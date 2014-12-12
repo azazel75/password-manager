@@ -33,19 +33,26 @@ Clipperz.PM.UI.Components.Panels.ExtraFeaturesPanel = React.createClass({
     //=========================================================================
 
     render: function () {
-        var	classes = {
+        var classes = {
             'panel': true,
             'right': true,
             'open': this.props['settingsPanelStatus'] == 'OPEN'
-        }
+        };
 
-        return	React.DOM.div({key:'extraFeaturesPanel', id:'extraFeaturesPanel', className:React.addons.classSet(classes)}, [
-            React.DOM.header({}, [
-                React.DOM.div({className:'settingsToggle'}, [
-                    Clipperz.PM.UI.Components.Button({eventName:'settingsToggleButton', label:"menu", handler:this.settingsToggleHandler})
-                ])
-            ]),
-            React.DOM.h2({}, "Extra features")
+        return React.DOM.div({
+            key:'extraFeaturesPanel',
+            id:'extraFeaturesPanel',
+            className:React.addons.classSet(classes)}, [
+                React.DOM.header({}, [
+                    React.DOM.div({className:'settingsToggle'}, [
+                        Clipperz.PM.UI.Components.Button({
+                            eventName:'settingsToggleButton',
+                            label:'menu',
+                            handler:this.settingsToggleHandler
+                        })
+                    ])
+                ]),
+                React.DOM.h2({}, 'Extra features')
         ]);
         /*
          <div id="extraFeaturesPanel" class="panel extraFeatures">
