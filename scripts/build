@@ -2,4 +2,4 @@
 
 readonly CURR_DIR=$(cd "$(dirname "$0")"; pwd -P)
 
-${CURR_DIR}/builder/main.py $@
+${CURR_DIR}/../env/bin/python ${CURR_DIR}/builder/main.py $@
