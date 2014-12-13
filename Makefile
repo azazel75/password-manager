@@ -10,10 +10,9 @@ export SHELL := /bin/bash
 export VENVDIR := $(TOPDIR)/env
 export PYTHON := $(VENVDIR)/bin/python
 export SYS_PYTHON := /usr/bin/python2.7
+export DOIT := $(VENVDIR)/bin/doit
 
 VENV_VER = 1.11.6
-SETUPTOOLS_PTH := $(VENVDIR)/lib/python2.7/site-packages/setuptools.pth
-SETUPTOOLS_SETUP := https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
 VENV_SETUP := https://pypi.python.org/packages/source/v/virtualenv/virtualenv-$(VENV_VER).tar.gz
 PIP := $(VENVDIR)/bin/pip
 PIP_SETUP := https://raw.github.com/pypa/pip/master/contrib/get-pip.py
@@ -22,7 +21,7 @@ WGET := wget --quiet --no-check-certificate
 
 # This is the default target, when no target is specified on the command line
 .PHONY: all
-all:: virtualenv
+all:: virtualenv doit
 
 ## virtual env rules
 
@@ -43,3 +42,8 @@ $(REQUIREMENTS_TIMESTAMP): requirements.txt
 	@echo "Installing pre-requirements..."
 	@PATH=$(TOPDIR)/bin:$(PATH) $(PIP) install  -r requirements.txt | grep --line-buffered -v '^   '
 	@touch $@
+
+.PHONY: doit
+doit: requirements
+	@echo "Running doit in auto mode, just modify and save files to toggle recompilations..."
+	@$(DOIT) auto
