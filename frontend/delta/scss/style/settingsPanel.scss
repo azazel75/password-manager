@@ -16,4 +16,28 @@
             }
         }
     }
+
+    ul.menu {
+        padding: 8px 8px;
+
+
+        li {
+            list-style: none;
+            border-bottom: 1px solid $main-alternate-text-color;
+            padding: 8px 0;
+
+            &:before {
+                @include icon-font();
+                content: "\e60d";
+                color: $main-alternate-text-color;
+            }
+
+            &:hover {
+                    background-color: $main-alternate-text-color;
+                    color: $main-alternate-color;
+            }
+        }
+
+
+    }
 }

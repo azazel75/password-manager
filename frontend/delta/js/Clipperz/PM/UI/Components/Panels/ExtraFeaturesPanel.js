@@ -21,6 +21,10 @@ refer to http://www.clipperz.com.
 
 */
 
+//jsl:declare Clipperz
+//jsl:declare MochiKit
+//jsl:declare React
+
 Clipperz.Base.module('Clipperz.PM.UI.Components.Panels');
 
 Clipperz.PM.UI.Components.Panels.ExtraFeaturesPanel = React.createClass({
@@ -52,33 +56,21 @@ Clipperz.PM.UI.Components.Panels.ExtraFeaturesPanel = React.createClass({
                         })
                     ])
                 ]),
-                React.DOM.h2({}, 'Extra features')
-        ]);
-        /*
-         <div id="extraFeaturesPanel" class="panel extraFeatures">
-
-         <div class="warnings">
-         <ul>
-         <li>Synchronize local data</li>
-         </ul>
-         </div>
-
-         <ul>
-         <li>Account</li>
-         <li>Subscription</li>
-         </ul>
-
-         <ul>
-         <li>Local Data</li>
-         <li>OTP</li>
-         </ul>
-
-         <div class="donation">
-         <a>Make a donation</a>
-         </div>
-         </div>
-         */
-
+                React.DOM.ul({className: 'menu'},[
+                    React.DOM.li({className: 'warnings'},
+                                 'Synchronize local data'),
+                    React.DOM.li(null, [
+                        'Account',
+                        React.DOM.br(),
+                        'Subscription']),
+                    React.DOM.li(null, [
+                        'Local Data',
+                        React.DOM.br(),
+                        'OTP']),
+                    React.DOM.li({className: 'donation'},
+                                 React.DOM.a(null, 'Make a donation'))
+                ]),
+            ]);
     }
 
     //=========================================================================
