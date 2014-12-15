@@ -45,5 +45,5 @@ $(REQUIREMENTS_TIMESTAMP): requirements.txt
 
 .PHONY: doit
 doit: requirements
-	@echo "Running doit in auto mode, just modify and save files to toggle recompilations..."
+	@echo "Running doit in auto mode, just modify and save files to trigger recompilations..."
 	@$(DOIT) auto
