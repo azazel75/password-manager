@@ -29,49 +29,49 @@ Clipperz.Base.module('Clipperz.PM.UI.Components.Panels');
 
 Clipperz.PM.UI.Components.Panels.ExtraFeaturesPanel = React.createClass({
 
-    settingsToggleHandler: function (anEvent) {
-        //console.log("settingsToggleHandler");
-        MochiKit.Signal.signal(Clipperz.Signal.NotificationCenter, 'toggleSettingsPanel');
-    },
+	settingsToggleHandler: function (anEvent) {
+		//console.log("settingsToggleHandler");
+		MochiKit.Signal.signal(Clipperz.Signal.NotificationCenter, 'toggleSettingsPanel');
+	},
 
-    //=========================================================================
+	//=========================================================================
 
-    render: function () {
-        var classes = {
-            'panel': true,
-            'right': true,
-            'open': this.props['settingsPanelStatus'] == 'OPEN'
-        };
+	render: function () {
+		var classes = {
+			'panel': true,
+			'right': true,
+			'open': this.props['settingsPanelStatus'] == 'OPEN'
+		};
 
-        return React.DOM.div({
-            key:'extraFeaturesPanel',
-            id:'extraFeaturesPanel',
-            className:React.addons.classSet(classes)}, [
-                React.DOM.header({}, [
-                    React.DOM.div({className:'settingsToggle'}, [
-                        Clipperz.PM.UI.Components.Button({
-                            eventName:'settingsToggleButton',
-                            label:'menu',
-                            handler:this.settingsToggleHandler
-                        })
-                    ])
-                ]),
-                React.DOM.ul({className: 'menu'},[
-                    React.DOM.li({className: 'warnings'},
-                                 'Synchronize local data'),
-                    React.DOM.li(null, [
-                        'Account',
-                        React.DOM.br(),
-                        'Subscription']),
-                    React.DOM.li(null, [
-                        'Local Data',
-                        React.DOM.br(),
-                        'OTP']),
-                    React.DOM.li({className: 'donation'},
-                                 React.DOM.a(null, 'Make a donation'))
-                ]),
-            ]);
-    }
+		return React.DOM.div({
+			key:'extraFeaturesPanel',
+			id:'extraFeaturesPanel',
+			className:React.addons.classSet(classes)}, [
+				React.DOM.header({}, [
+					React.DOM.div({className:'settingsToggle'}, [
+						Clipperz.PM.UI.Components.Button({
+							eventName:'settingsToggleButton',
+							label:'menu',
+							handler:this.settingsToggleHandler
+						})
+					])
+				]),
+				React.DOM.ul({className: 'menu'},[
+					React.DOM.li({className: 'warnings'},
+								 'Synchronize local data'),
+					React.DOM.li(null, [
+						'Account',
+						React.DOM.br(),
+						'Subscription']),
+					React.DOM.li(null, [
+						'Local Data',
+						React.DOM.br(),
+						'OTP']),
+					React.DOM.li({className: 'donation'},
+								 React.DOM.a(null, 'Make a donation'))
+				]),
+			]);
+	}
 
-    //=========================================================================
+	//=========================================================================
 });
